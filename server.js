@@ -108,7 +108,10 @@ passport.serializeUser(function(user, done) {
 app.get("/cifrador", (req, res) => {
     res.render("cifrador");
   });
-  
+
+app.get("/", (req, res) => {
+    res.render("login");
+  });
 
 app.get("/login",(req,res)=>{
     const errorMessage = req.flash('error');
@@ -121,5 +124,5 @@ app.post("/login", passport.authenticate('local',{
     failureFlash: true, // Habilita el uso de mensajes flash
 }));
 
-const server = app.listen(8080,()=> console.log("server started"));
+const server = app.listen(3000,()=> console.log("server started"));
 
